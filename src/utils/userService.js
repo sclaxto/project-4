@@ -5,10 +5,12 @@ const BASE_URL = "/api/users/";
 // NOTE THIS IS configured to send of a multi/part form request
 // aka photo
 function signup(user) {
+  console.log(signup , "<- this is the signup function")
   return (
     fetch(BASE_URL + "signup", {
       method: "POST",
       body: user,
+      
     })
       .then((res) => {
         if (res.ok) return res.json();

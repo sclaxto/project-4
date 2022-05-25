@@ -3,6 +3,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
+import UserPage from "../UserPage/UserPage";
+import MainPage from "../MainPage/MainPage";
 import userService from "../../utils/userService";
 
 function App() {
@@ -22,7 +24,8 @@ function App() {
   if (user) {
     return (
       <Routes>
-        <Route path="/" element={<h1>This is Home Page!</h1>} />
+        <Route path="/" element={<MainPage />} 
+       />
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
@@ -30,6 +33,10 @@ function App() {
         <Route
           path="/signup"
           element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
+        />
+         <Route
+          path="/:username"
+          element={<UserPage user={user} />}
         />
       </Routes>
     );
@@ -45,7 +52,12 @@ function App() {
         path="/signup"
         element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
       />
-      <Route path="/*" element={<Navigate to="/login" />} />
+      <Route path="/*" element={<Navigate to="/login" />} 
+      />
+      <Route
+          path="/:username"
+          element={<UserPage user={user} />}
+      />
     </Routes>
   );
 }

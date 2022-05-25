@@ -28,13 +28,15 @@ function signup(req, res) {
   //your bucket name goes where collectorcat is
   //////////////////////////////////////////////////////////////////////////////////
   s3.upload(params, async function (err, data) {
-    console.log(data, "from aws"); // data.Location is our photoUrl that exists on aws
+    console.log(err, "from aws"); // data.Location is our photoUrl that exists on aws
     const user = new User({ ...req.body, photoUrl: data.Location });
+    console.log(data.Location, "<- data.location")
     try {
       await user.save();
       const token = createJWT(user); // user is the payload so this is the object in our jwt
       res.json({ token });
     } catch (err) {
+       console.log(err, "<- this is the error");
       // Probably a duplicate email
       res.status(400).json(err);
     }
