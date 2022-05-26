@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { Button, Form, Grid, Header, Image, Segment } from 'semantic-ui-react'
 import userService from "../../utils/userService";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUpPage(props) {
+
+const navigate = useNavigate()
 
 //setting state to keep track of the info to be included in the form
 const [error, setError] = useState('')
@@ -27,6 +30,7 @@ for (let fieldName in state){
 try {
   await userService.signup(formData)
   props.handleSignUpOrLogin()
+  navigate('/')
   console.log(formData.forEach((item) => console.log(item)))
 } catch(err){
   console.log(err.message);

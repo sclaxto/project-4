@@ -3,8 +3,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
-import UserPage from "../UserPage/UserPage";
-import MainPage from "../MainPage/MainPage";
+import UserPage from "../MainPage/MainPage";
+import MainPage from "../UserPage/UserPage";
 import userService from "../../utils/userService";
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         />
          <Route
           path="/:username"
-          element={<UserPage user={user} />}
+          element={<UserPage user={user} handleLogout={handleLogout} />}
         />
       </Routes>
     );

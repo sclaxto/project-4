@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Photo = require("../models/photo");
 const jwt = require("jsonwebtoken");
 const SECRET = process.env.SECRET;
 const { v4: uuidv4 } = require("uuid");
@@ -9,6 +10,7 @@ const s3 = new S3(); // initialize the construcotr
 module.exports = {
   signup,
   login,
+  page
 };
 
 function signup(req, res) {
@@ -60,6 +62,23 @@ async function login(req, res) {
     });
   } catch (err) {
     return res.status(401).json(err);
+  }
+}
+
+async function page(req, res){
+  try {
+    // First find the user using the params from the request
+    // findOne finds first match, its useful to have unique usernames!
+    const user = await User.findOne({username: req.params.username})
+    // Then find all the posts that belong to that user
+    if(!user) return res.status(404).json({err: 'User not found'})
+
+    const photos = await Photo.find({user: user._id}).populate("user").exec();
+    console.log(photos, ' this photos')
+    res.status(200).json({photos: photos, user: user})
+  } catch(err){
+    console.log(err)
+    res.status(400).json({err})
   }
 }
 
