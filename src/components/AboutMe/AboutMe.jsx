@@ -1,9 +1,9 @@
 import React from "react";
 import { Image, Grid, Segment } from "semantic-ui-react";
 
-function ProfileBio({ user }) {
+function AboutMe({ user }) {
   return (
-    <Grid textAlign="center" columns={2}>
+    <Grid textAlign="center" columns={4}>
       <Grid.Row>
         <Grid.Column>
           <Image
@@ -21,7 +21,7 @@ function ProfileBio({ user }) {
             <h3>{user.username}</h3>
           </Segment>
           <Segment>
-            <span> About Me: {user.AboutMe}</span>
+            <span> About Me: {user.aboutMe}</span>
           </Segment>
         </Grid.Column>
       </Grid.Row>
@@ -29,4 +29,4 @@ function ProfileBio({ user }) {
   );
 }
 
-export default ProfileBio;
+export default AboutMe;

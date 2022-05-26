@@ -14,7 +14,9 @@ const [state, setState] =useState({
   username: '',
   email: '',
   password: '',
-  passwordConf: '' 
+  passwordConf: '',
+  aboutMe: ''
+
 });
 
 const [selectedFile, setSelectedFile] = useState('');
@@ -91,6 +93,12 @@ function handleFileInput(e){
               value={state.passwordConf}
               onChange={handleChange}
               required
+            />
+              <Form.TextArea
+              label="aboutMe"
+              name="aboutMe"
+              placeholder="Share details about you and your practice"
+              onChange={handleChange}
             />
          <Form.Field>
            <Form.Input

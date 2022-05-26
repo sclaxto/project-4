@@ -10,7 +10,7 @@ const s3 = new S3(); // initialize the construcotr
 module.exports = {
   signup,
   login,
-  page
+  profile
 };
 
 function signup(req, res) {
@@ -65,7 +65,7 @@ async function login(req, res) {
   }
 }
 
-async function page(req, res){
+async function profile(req, res){
   try {
     // First find the user using the params from the request
     // findOne finds first match, its useful to have unique usernames!

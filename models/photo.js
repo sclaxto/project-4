@@ -5,7 +5,9 @@ const photoSchema = new mongoose.Schema({
     photoType: String,
     date: Number, 
     location: String, 
-    description: String
+    description: String,
+    photoUrl: String
+
     
 })
 

@@ -15,13 +15,14 @@ export default function MainPage(props){
     const [photos, setPhotos] = useState([]);
 
     const { username } = useParams();
-
+    
     
     
     async function getProfile() {
+      console.log(useParams, "<-this is the username")
         try {
           const data = await userService.getProfile(username);
-          console.log(data, " < -- data");
+          console.log(data, " < -- getProfile");
           setLoading(() => false);
           setUser(() => data.user);
           setPhotos(() => data.photos);
@@ -84,4 +85,5 @@ export default function MainPage(props){
         </Grid>
       );
     }
+    
     
