@@ -30,6 +30,8 @@
 - Express
 - Node.js
 - React 
+- Mongoose
+- Semantic UI
 
 ### Next Steps: 
 - Allowing users to upload more than 1 image
