@@ -35,9 +35,10 @@ function logout() {
 }
 
 function login(creds) {
+  
   return fetch(BASE_URL + "login", {
     method: "POST",
-    headers: new Headers({ "Content-Type": "application/json" }),
+    headers: new Headers({ "Content-Type": "application/json" }), 
     body: JSON.stringify(creds),
   })
     .then((res) => {
@@ -46,10 +47,13 @@ function login(creds) {
       throw new Error("Bad Credentials!");
     })
     .then(({ token }) => tokenService.setToken(token));
+    
 }
 
 
+
 function getProfile(username){
+  console.log(username, '<--this is username')
   return fetch(BASE_URL + username, {
     headers: {
       Authorization: "Bearer " + tokenService.getToken(),

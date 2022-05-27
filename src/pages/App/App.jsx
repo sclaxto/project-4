@@ -3,8 +3,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
-import UserPage from "../MainPage/MainPage";
-import MainPage from "../UserPage/UserPage";
+import UserPage from "../UserPage/UserPage"
+import MainPage from "../MainPage/MainPage";
 import userService from "../../utils/userService";
 
 function App() {
@@ -14,6 +14,7 @@ function App() {
 
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); // getting the user from localstorage decoding the jwt
+    console.log(userService, "this is userService")
   }
 
   function handleLogout() {
@@ -24,7 +25,7 @@ function App() {
   if (user) {
     return (
       <Routes>
-        <Route path="/" element={<MainPage />} 
+        <Route path="/" element={<MainPage user={user}   />} 
        />
         <Route
           path="/login"
@@ -54,10 +55,6 @@ function App() {
       />
       <Route path="/*" element={<Navigate to="/login" />} 
       />
-       <Route
-          path="/:username"
-          element={<UserPage user={user} />} 
-       />
     </Routes>
   );
 }

@@ -6,7 +6,6 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loading from "../../components/Loader/Loader";
 import TextAreaExampleRows from "../../components/TextArea/TextArea";
 import * as photosAPI from "../../utils/photoApi";
-import * as likesAPI from '../../utils/likeApi';
 
 import { Grid } from "semantic-ui-react";
 
@@ -17,28 +16,7 @@ export default function Feed({ user, handleLogout }){
     const [loading, setLoading] = useState({});
     
 
-    async function addLike(photoId){
-      try {
-        const data = await likesAPI.create(photoId)
-        console.log(data, ' <- the response from the server when we make a like');
-        getPhotos(); // <- to go get the updated posts with the like
-      } catch(err){
-        console.log(err)
-        setError(err.message)
-      }
-    }
   
-    async function removeLike(likeId){
-      try {
-        const data = await likesAPI.removeLike(likeId);
-        console.log(data, '<-  this is the response from the server when we remove a like')
-        getPhotos()
-        
-      } catch(err){
-        console.log(err);
-        setError(err.message);
-      }
-    }
   
 
     async function handleAddPhoto(photo) {
@@ -115,8 +93,6 @@ export default function Feed({ user, handleLogout }){
                 numPhotosCol={3}
                 isProfile={false}
                 loading={loading}
-                addLike={addLike}
-                removeLike={removeLike}
                 user={user}
               />
             </Grid.Column>

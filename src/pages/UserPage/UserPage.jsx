@@ -25,6 +25,7 @@ export default function MainPage(props){
           console.log(data, " < -- getProfile");
           setLoading(() => false);
           setUser(() => data.user);
+          console.log(setUser, '<-setUser')
           setPhotos(() => data.photos);
         } catch (err) {
           console.log(err);
@@ -64,7 +65,7 @@ export default function MainPage(props){
         <Grid>
           <Grid.Row>
             <Grid.Column>
-              <PageHeader handleLogout={props.handleLogout} user={props.user} />
+              <PageHeader />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>

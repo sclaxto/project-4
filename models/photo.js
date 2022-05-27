@@ -1,10 +1,5 @@
 const mongoose = require('mongoose');
 
-const likesSchema = mongoose.Schema({
-    username: String, 
-    userId: { type: mongoose.Schema.Types.ObjectId }
-})
-
 
 const photoSchema = new mongoose.Schema({
     user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
@@ -14,7 +9,7 @@ const photoSchema = new mongoose.Schema({
     description: String,
     photoUrl: String,
     comments: String, 
-    likes: [likesSchema] 
+
     
 
     

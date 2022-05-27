@@ -1,28 +1,17 @@
 import React from "react";
-import { Card, Image, Icon } from "semantic-ui-react";
+import { Card, Image, } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 
 
-function PhotoCard({ photo, isProfile, user, removeLike, addLike  }) {
+function PhotoCard({ photo, isProfile, user }) {
   // call the addLike or the removeLike when we click on the heart!
 
   // We need to know if the logged in user has liked this particular post!
   // we search the array of objects that is post.likes to see if the logged in users
   // id exists in that array of objects
 
-  const likeIndex = photo.likes.findIndex(
-    (like) => like.username === user.username
-  );
-
-  const clickHandler =
-    likeIndex > -1
-      ? () => removeLike(photo.likes[likeIndex]._id)
-      : () => addLike(photo._id);
-
-  // if the logged users id exists, the heart should be red, because the logged in user has liked the post
-  // and the clicked handler should removeLike
-  const likeColor = likeIndex > -1 ? "red" : "grey";
+ 
   
   return (
     <Card key={photo._id} raised>
@@ -54,13 +43,6 @@ function PhotoCard({ photo, isProfile, user, removeLike, addLike  }) {
       <Card.Content extra textAlign={"right"}>
       </Card.Content>
       <Card.Content extra textAlign={"right"}>
-        <Icon
-          name={"heart"}
-          size="large"
-          color={likeColor}
-          onClick={clickHandler}
-        />
-        {photo.likes.length} Likes
       </Card.Content>
     </Card>
   );
