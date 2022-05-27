@@ -19,7 +19,7 @@ export default function MainPage(props){
     
     
     async function getProfile() {
-      console.log(useParams, "<-this is the username")
+      console.log(username, "<-this is the username")
         try {
           const data = await userService.getProfile(username);
           console.log(data, " < -- getProfile");
@@ -64,7 +64,7 @@ export default function MainPage(props){
         <Grid>
           <Grid.Row>
             <Grid.Column>
-              <PageHeader handleLogout={props.handleLogout} user={props.user}/>
+              <PageHeader handleLogout={props.handleLogout} user={props.user} />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>

@@ -54,10 +54,10 @@ function App() {
       />
       <Route path="/*" element={<Navigate to="/login" />} 
       />
-      {/* <Route
+       <Route
           path="/:username"
-      //     element={<UserPage user={user} />} */}
-      
+          element={<UserPage user={user} />} 
+       />
     </Routes>
   );
 }

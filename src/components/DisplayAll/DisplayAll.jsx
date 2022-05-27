@@ -3,7 +3,7 @@ import { Card, Dimmer, Segment, Image  } from 'semantic-ui-react'
 import PhotoCard from '../PhotoCard/PhotoCard';
 import Loader from '../Loader/Loader';
 
-    export default function PhotoBook({photos, numPhotosCol, isProfile, loading, user }){
+    export default function PhotoBook({photos, numPhotosCol, isProfile, loading, user, addLike, removeLike }){
 
         return (
             <Card.Group itemsPerRow={numPhotosCol} stackable>
@@ -21,6 +21,8 @@ import Loader from '../Loader/Loader';
                   photo={photo}
                   key={photo._id}
                   isProfile={isProfile}
+                  addLike={addLike}
+                  removeLike={removeLike}
                   user={user}
                 />
               );
