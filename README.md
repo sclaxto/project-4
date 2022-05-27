@@ -1,6 +1,6 @@
 ![Digital](https://user-images.githubusercontent.com/88744476/170676909-eef5854d-a065-4557-aec1-3b20b7e2996f.jpg)
 
-### Digital Scrapbook (beta) is an app that allows users to upload and share their film photos. 
+##### Digital Scrapbook (beta) is an app that allows users to upload and share their film photos. 
 
 ## Getting Started 
 
