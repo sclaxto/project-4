@@ -1,37 +1,27 @@
-## Setup 
-
-1. Clone the repo
-2. Rename the folder to your Project, you can use the `mv` command like `mv mern-boilerplate yourprojectname`
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+![Digital](https://user-images.githubusercontent.com/88744476/170676909-eef5854d-a065-4557-aec1-3b20b7e2996f.jpg)
 
 
-#### Setup your git repo
 
-1. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-2. Then you can run the following commands in the root of your project 
+## Getting Started 
 
-```
-git init
-git add .
-git commit -m "first commit"
-git remote add origin git@git.generalassemb.ly:SEI-CC/test.git // this will be whatever your address will be, look at the address in the code github gives you!
-git push -u origin main
-```
+1. ERD.  
+![Screen Shot 2022-05-20 at 5 25 40 PM](https://user-images.githubusercontent.com/88744476/170677561-e91d2d8a-eb36-48ea-b74e-3f94fc6914f9.png)
 
-#### Setup the App
+2. Wireframe 
 
-```npm install```
+![Screen Shot 2022-05-20 at 6 43 06 PM](https://user-images.githubusercontent.com/88744476/170700460-75a20877-ffeb-49ab-84a8-b999f204cfd1.png)
 
-*DOTENV*
+3. [Trello](https://trello.com/b/QOOqfuoP/digital-scrapbook)
 
-`touch .env`
+4. [Heroku](https://dgtlscbk.herokuapp.com/login)
 
-add your variables
+### Technologies Used
+- JavaScript
+- Mongodb
+- Express
+- Node.js
+- React 
 
-```
-DATABASE_URL=mongodb://localhost:27017/testagramV2
-BUCKET_NAME=catcollectorone
-SECRET=mysecretforjwt
-```
-
-The app is configured, to use those respective key names for the database, jwt secret and aws bucket, of course you'll have your own values
+### Next Steps: 
+- Allowing users to upload more than 1 image
+- Adding unique Style features
