@@ -9,7 +9,7 @@ import * as photosAPI from "../../utils/photoApi";
 
 import { Grid } from "semantic-ui-react";
 
-export default function Feed({ user, handleLogout }){
+export default function MainPage({ user, handleLogout }){
 
     const [photos, setPhotos] = useState([]);
     const [error, setError] = useState("");

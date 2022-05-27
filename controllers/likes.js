@@ -1,4 +1,4 @@
-const Post = require('../models/photo');
+const Photo = require('../models/photo');
 
 module.exports = {
     create,

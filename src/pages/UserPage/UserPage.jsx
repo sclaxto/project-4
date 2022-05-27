@@ -7,8 +7,9 @@ import DisplayAll from "../../components/DisplayAll/DisplayAll";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import userService from "../../utils/userService";
 import { useParams } from "react-router-dom";
+import * as likesAPI from '../../utils/likeApi';
 
-export default function MainPage(props){  
+export default function UserPage(props){  
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const [user, setUser] = useState({});
@@ -16,7 +17,28 @@ export default function MainPage(props){
 
     const { username } = useParams();
     
-    
+    async function addLike(photoId){
+      try {
+        const data = await likesAPI.create(photoId)
+        console.log(data, ' <- the response from the server when we make a like');
+        getProfile(); // <- to go get the updated posts with the like
+      } catch(err){
+        console.log(err)
+        setError(err.message)
+      }
+    }
+  
+    async function removeLike(likeId){
+      try {
+        const data = await likesAPI.removeLike(likeId);
+        console.log(data, '<-  this is the response from the server when we remove a like')
+        getProfile()
+        
+      } catch(err){
+        console.log(err);
+        setError(err.message);
+      }
+    }
     
     async function getProfile() {
       console.log(username, "<-this is the username")
@@ -80,6 +102,8 @@ export default function MainPage(props){
                 photos={photos}
                 numPhotosCol={3}
                 user={props.user}
+                addLike={addLike}
+                removeLike={removeLike}
               />
             </Grid.Column>
           </Grid.Row>
