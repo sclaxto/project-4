@@ -36,3 +36,5 @@
 ### Next Steps: 
 - Allowing users to upload more than 1 image
 - Adding unique Style features
+- Delete function for photos
+
